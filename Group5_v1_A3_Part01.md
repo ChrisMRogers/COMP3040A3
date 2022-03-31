@@ -41,7 +41,7 @@ Report an incident, providing JSON of obstruction, time, and location.
 Report an pothole, providing JSON of pothole location.
 
 `PUT /incident/`
-Report a reported incident, providing JSON of obstruction, time, and location.
+Update a reported incident, providing JSON of obstruction, time, and location.
 
 `PUT /pothole/`
 Update a reported pothole, providing JSON of pothole location.
