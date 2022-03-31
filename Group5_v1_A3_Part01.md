@@ -1,4 +1,6 @@
+# $hit Holes Pothole Tracking API
 
+## Description
 
 ## Endpoints
 
@@ -18,3 +20,7 @@ Return the details of a specific incident.
 Report an incident, providing JSON of obstruction, time, and location.
 
 
+## Resources
+
+## Sample Request
+/get/incidents/meadowood --> {street: 'Meadowood Drive', numPotholes: 5, numIncidents: 15, MPIClaimTotal: 25000}
