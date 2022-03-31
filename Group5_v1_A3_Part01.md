@@ -22,5 +22,7 @@ Report an incident, providing JSON of obstruction, time, and location.
 
 ## Resources
 
+A JSON list of incidents caused by bad road infrastructure.
+
 ## Sample Request
 /get/incidents/meadowood --> {street: 'Meadowood Drive', numPotholes: 5, numIncidents: 15, MPIClaimTotal: 25000}
