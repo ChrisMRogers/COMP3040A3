@@ -59,4 +59,4 @@ Update a reported pothole, providing JSON of pothole location.
 `POST/incident/: {street: '', MPIClaimAmount: 0}`
 
 ## Sample Request
-/get/incidents/meadowood --> {street: 'Meadowood Drive', numPotholes: 5, numIncidents: 15, MPIClaimTotal: 25000}
+`/get/incidents/meadowood` --> `{street: 'Meadowood Drive', numPotholes: 5, numIncidents: 15, MPIClaimTotal: 25000}`
