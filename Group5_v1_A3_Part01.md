@@ -2,6 +2,7 @@
 
 ## Description
 $hit Holes is designed to give drivers and Manitoban citizens information about the quality of our roads. Every year Manitobans pay tens of thousands of dollars repairing their vehicles because of the general lack of upkeep of our public roads, to combat this, $hit Holes will inform drivers of which streets to avoid. In the unfortunate event of a crash related to road infrastructure, $hit Holes will bolster your claim with MPI by telling you how many other drivers have also experienced an incident on this road. By allowing users the ability to upload and update the roads they drive on every day, our data will always remain as fresh as possible.
+
 ## Endpoints
 
 `GET /potholes`
@@ -47,8 +48,15 @@ Report a reported incident, providing JSON of obstruction, time, and location.
 Update a reported pothole, providing JSON of pothole location.
 
 ## Resources
+`GET/incidents: {[{incidentID: ID, potholeID: ID, street: '', MPIClaimTotal: 0}]}`
 
-A JSON list of incidents caused by bad road infrastructure.
+`GET/incidents/<potholeID>: {[{incidentID: ID, street: '', MPIClaimTotal: 0, numIncidents: 0}]}`
+
+`GET/incidents/<streetName>: {[incidentID: ID, potholeID: ID, MPIClaimTotal: 0, numIncidents: 0]}`
+
+`GET/incident/<incidentID>: {potholeID: ID, numIncidents: 0, MPIClaimTotal: 0, street: ''}`
+
+`POST/incident/: {street: '', MPIClaimAmount: 0}`
 
 ## Sample Request
 /get/incidents/meadowood --> {street: 'Meadowood Drive', numPotholes: 5, numIncidents: 15, MPIClaimTotal: 25000}
