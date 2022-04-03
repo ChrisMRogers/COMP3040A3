@@ -5,18 +5,6 @@ $hit Holes is designed to give drivers and Manitoban citizens information about 
 
 ## Endpoints
 
-`GET /potholes`
-Returns a list of all potholes by location.
-
-`GET /incidents`
-Returns a list of all incidents, by obstruction type and location.
-
-`GET /incident/<potholeID>`
-Returns the most recent incident associated with the specific provided obstruction.
-
-`GET /incident/<streetName>`
-Return the most recent incident which occurred on the provided street.
-
 `GET /incidents/<potholeID>`
 Returns a list of incidents associated with the specific provided obstruction.
 
@@ -26,37 +14,13 @@ Return a list of incidents which occurred on the provided street.
 `GET /incident/<incidentID>`
 Return the details of a specific incident.
 
-`GET /potholes/<street>`
-Returns a list of potholes which are located on a specific street.
-
-`GET /potholes/<incident>`
-Returns a list of potholes which are involved in a specific incident.
-
-`GET /pothole/<potholeID>`
-Returns the details of a specific pothole.
-
-`POST /incident/`
-Report an incident, providing JSON of obstruction, time, and location.
-
-`POST /pothole/`
-Report an pothole, providing JSON of pothole location.
-
-`PUT /incident/`
-Update a reported incident, providing JSON of obstruction, time, and location.
-
-`PUT /pothole/`
-Update a reported pothole, providing JSON of pothole location.
-
 ## Resources
-`GET/incidents: {[{incidentID: ID, potholeID: ID, street: '', MPIClaimTotal: 0}]}`
 
 `GET/incidents/<potholeID>: {[{incidentID: ID, street: '', MPIClaimTotal: 0, numIncidents: 0}]}`
 
 `GET/incidents/<streetName>: {[incidentID: ID, potholeID: ID, MPIClaimTotal: 0, numIncidents: 0]}`
 
 `GET/incident/<incidentID>: {potholeID: ID, numIncidents: 0, MPIClaimTotal: 0, street: ''}`
-
-`POST/incident/: {street: '', MPIClaimAmount: 0}`
 
 ## Sample Request
 `/get/incidents/meadowood` --> `{street: 'Meadowood Drive', numPotholes: 5, numIncidents: 15, MPIClaimTotal: 25000}`
