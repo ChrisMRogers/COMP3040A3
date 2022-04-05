@@ -5,22 +5,88 @@ $hit Holes is designed to give drivers and Manitoban citizens information about 
 
 ## Endpoints
 
-`GET /incidents/<potholeID>`
-Returns a list of incidents associated with the specific provided obstruction.
+`GET /potholes`
+Returns the details of potholes within Manitoba.
 
-`GET /incidents/<streetName>`
-Return a list of incidents which occurred on the provided street.
+### Endpoint Parameters
 
-`GET /incident/<incidentID>`
-Return the details of a specific incident.
+- `location - location string to narrow search results` 
+- `minNumIncidents - minimum number of required related incidents`
+- `minMPIClaimTotal - minimum total claimed through MPI`
 
 ## Resources
 
-`GET/incidents/<potholeID>: {[{incidentID: ID, street: '', MPIClaimTotal: 0, numIncidents: 0}]}`
-
-`GET/incidents/<streetName>: {[incidentID: ID, potholeID: ID, MPIClaimTotal: 0, numIncidents: 0]}`
-
-`GET/incident/<incidentID>: {potholeID: ID, numIncidents: 0, MPIClaimTotal: 0, street: ''}`
+```
+GET /potholes?location=streetLocation&minNumIncidents=numMinIncidents&minMPIClaimTotal=minTotal 
+```
+**Responds**
+```
+{
+	"potholeID": ID,
+	"numIncidents": 0,
+	"MPIClaimTotal": 0,
+	"street": ''
+}
+```
 
 ## Sample Request
-`/get/incidents/meadowood` --> `{street: 'Meadowood Drive', numPotholes: 5, numIncidents: 15, MPIClaimTotal: 25000}`
+The query can be made with no parameters which will return all potholes in Manitoba
+```
+GET /potholes
+```
+**Responds**
+```
+[
+  {
+		"potholeID": 5424,
+		"numIncidents": 15,
+		"MPIClaimTotal": 6000,
+		"street": "Machray Ave"
+	},
+	{
+		"potholeID": 4325,
+		"numIncidents": 5,
+		"MPIClaimTotal": 24500,
+		"street": "Church Ave"
+	},
+        ...
+        ...
+        ...
+	{
+		"potholeID": 4326,
+		"numIncidents": 1,
+		"MPIClaimTotal": 4500,
+		"street": "Parr St"
+	}
+]
+```
+
+
+Or parameters can be supplied in order to narrow down the returned results
+
+```
+GET /potholes?location='Meadowood'&minNumIncidents=10&minMPIClaimTotal=15000
+```
+**Responds**
+```
+[
+  {
+		"potholeID": 3423,
+		"numIncidents": 11,
+		"MPIClaimTotal": 16000,
+		"street": "Meadowood Drive"
+	},
+	{
+		"potholeID": 4321,
+		"numIncidents": 13,
+		"MPIClaimTotal": 15500,
+		"street": "Wales Ave"
+	},
+	{
+		"potholeID": 3214,
+		"numIncidents": 12,
+		"MPIClaimTotal": 27000,
+		"street": "Pembridge Bay"
+	}
+]
+```
